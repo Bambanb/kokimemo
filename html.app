@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="皇紀メモ">
+  <meta name="theme-color" content="#1a1230">
+  <link rel="manifest" href="./manifest.json">
+  <title>皇紀メモ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="row between">
+    <div class="row" style="min-width:0">
+      <button class="btn icon" id="backBtn" title="上へ">←</button>
+      <div style="min-width:0">
+        <div class="title" id="headTitle" data-i18n="ホーム">解体現場</div>
+        <div class="crumb" id="breadcrumb">/</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- タグフィルター -->
+  <div id="tagFilter" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
+
+  <div class="row">
+    <div class="row">
+      <button class="btn icon" id="modeBtn" title="モード切替">待</button>
+    </div>
+    
+    <div class="pill">
+      <span class="ico">➵</span>
+      <input id="qInput" data-ph="タイトル/本文の一部（任意）" placeholder="タイトル/本文の一部（任意）" />
+    </div>
+    <button class="btn" id="renameFolderBtn" data-i18n="フォルダ名変更">フォルダ名変更</button>
+  </div>
+</header>
+
+<main>
+  <div class="panel" id="foldersPanel">
+    <h3 data-i18n="フォルダ">フォルダ</h3>
+    <div id="foldersList"></div>
+    <div class="hint" id="foldersEmpty" style="display:none;" data-i18n="フォルダなし">フォルダなし</div>
+  </div>
+
+  <div class="panel" id="memosPanel">
+    <h3 data-i18n="メモ">メモ</h3>
+    <div id="memosList"></div>
+    <div class="hint" id="memosEmpty" style="display:none;" data-i18n="メモなし">メモなし</div>
+  </div>
+</main>
+
+<div class="fab">
+  <button class="btn accent" id="exportBtn" style="display:none;" data-i18n="＋エクスポート">＋エクスポート</button>
+  <button class="btn accent" id="addMemoBtn" data-i18n="＋メモ">＋メモ</button>
+  <button class="btn accent" id="addFolderBtn" data-i18n="＋フォルダ">＋フォルダ</button>  
+</div>
+
+<!-- editor -->
+<div id="editorView">
+  <div id="editorTop">
+  <div class="row between">
+    <div class="row" style="gap:8px">
+      <button class="btn icon" id="closeEditorBtn">←</button>
+　<button class="btn icon" id="saveHistoryBtn" data-i18n-title="バックアップ">▼</button>
+      <button class="btn icon" id="showHistoryBtn" data-i18n-title="履歴">▲</button>
+      
+    </div>
+    <div class="small" id="charCount" data-i18n="文字数">文字数 0</div>
+    <div class="small" id="saveStatus" style="color:var(--muted)" data-i18n="保存済み">保存済み</div>
+  </div>
+  <input id="titleInput" data-ph="タイトル" placeholder="タイトル" />
+  <div id="tagSelector"></div>
+</div>
+    
+  <textarea id="bodyInput" data-ph="ここに本文を書く。" placeholder="ここに本文を書く。"></textarea>
+</div>
+
+<!-- custom dialog -->
+<div id="customDialog">
+  <div id="dialogBox">
+    <div id="dialogTitle"></div>
+    <div id="dialogMessage"></div>
+    <input id="dialogInput" style="display:none; width:100%; margin:10px 0; padding:12px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--text); border-radius:12px; outline:none; font-size:14px;" />
+    <div id="dialogButtons"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
