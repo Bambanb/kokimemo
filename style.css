@@ -253,10 +253,14 @@ main{padding:12px 20px 80px}
   pointer-events:none;
 }
 
-* {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
+.item {
+  /* 既存のスタイル */
+  pointer-events: auto;
+}
+
+.item .name,
+.item .meta {
+  pointer-events: none;
 }
 
 input, textarea {
