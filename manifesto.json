@@ -1,7 +1,8 @@
 {
   "name": "皇紀メモ",
   "short_name": "皇紀メモ",
-  "start_url": "./",
+  "start_url": "/kokimemo/",
+  "scope": "/kokimemo/",
   "display": "standalone",
   "background_color": "#1a1230",
   "theme_color": "#1a1230",
